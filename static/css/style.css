@@ -1,0 +1,32 @@
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#movie-form {
+    margin-bottom: 20px;
+}
+
+#recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recommendation {
+    margin: 15px;
+    text-align: center;
+}

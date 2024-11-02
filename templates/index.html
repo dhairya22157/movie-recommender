@@ -1,0 +1,50 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommender System</h1>
+        <form id="movie-form">
+            <label for="movie">Type or select a movie from the dropdown:</label>
+            <select id="movie" name="movie">
+                {% for movie in movie_list %}
+                    <option value="{{ movie }}">{{ movie }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Show Recommendation</button>
+        </form>
+
+        <div id="recommendations" style="display: flex; flex-wrap: wrap; margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $('#movie-form').on('submit', function(event) {
+            event.preventDefault();
+            let movie = $('#movie').val();
+            $.ajax({
+                type: 'POST',
+                url: '/recommend',
+                data: { movie: movie },
+                success: function(response) {
+                    $('#recommendations').empty();
+                    response.forEach(function(rec) {
+                        $('#recommendations').append(`
+                            <div class="recommendation">
+                                <h3>${rec.title}</h3>
+                                <img src="${rec.poster}" alt="${rec.title}" width="150">
+                            </div>
+                        `);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
