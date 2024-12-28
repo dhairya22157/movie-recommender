@@ -1,8 +1,11 @@
 /* static/css/style.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background: url('/static/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f4f4f9;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -10,23 +13,74 @@ body {
     margin: auto;
     padding: 20px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
-    color: #333;
+    color: #f4f4f9;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-#movie-form {
-    margin-bottom: 20px;
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+#movie {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e64a19;
 }
 
 #recommendations {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .recommendation {
     margin: 15px;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.recommendation img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.recommendation img:hover {
+    transform: scale(1.1);
+}
+
+.recommendation h3 {
+    color: #fff;
+    font-size: 1rem;
 }

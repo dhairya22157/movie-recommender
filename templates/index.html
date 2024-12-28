@@ -1,4 +1,3 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,16 +11,16 @@
     <div class="container">
         <h1>Movie Recommender System</h1>
         <form id="movie-form">
-            <label for="movie">Type or select a movie from the dropdown:</label>
+            <label for="movie">What are you looking for today?</label>
             <select id="movie" name="movie">
                 {% for movie in movie_list %}
                     <option value="{{ movie }}">{{ movie }}</option>
                 {% endfor %}
             </select>
-            <button type="submit">Show Recommendation</button>
+            <button type="submit">Recommend</button>
         </form>
 
-        <div id="recommendations" style="display: flex; flex-wrap: wrap; margin-top: 20px;"></div>
+        <div id="recommendations"></div>
     </div>
 
     <script>
